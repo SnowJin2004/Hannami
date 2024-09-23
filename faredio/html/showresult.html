@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>搜索结果</title>
+	<link rel="shortcut icon" href="./img/favicon.png" type="image/png" sizes="16x16">
+	<link rel="shortcut icon" href="./img/Hannami.svg" type="image/svg">
+	<link rel="icon" href="./img/favicon.png" type="image/png" sizes="16x16">
+	<link rel="icon" href="./img/Hannami.svg" type="image/svg">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta name="robots" content="noindex,nofollow">
+	<link rel="stylesheet" type="text/css" href="../../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../../css/crumb.css">
+	<link rel="stylesheet" type="text/css" href="../../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../faredio.css">
+	<link rel="stylesheet" type="text/css" href="../farediobox.css">
+</head>
+
+<body>
+	<header>
+		<div id="title">
+			<img src="../../img/Hannami.svg">
+			<span>半浪市</span>
+		</div>
+		<nav>
+			<menu>
+				<li><a href="../../index.html">首页</a></li>
+				<li><a href="">111</a></li>
+				<li><a href="">222</a></li>
+				<li><a href="">333</a></li>
+			</menu>
+		</nav>
+	</header>
+	<main>
+		<div id="crumbs">
+			<ul>
+				<li><a href="../../index.html">首页</a></li>
+				<li><a href="">???</a></li>
+				<li><a href="">路径搜索</a></li>
+			</ul>
+		</div>
+		<!-- Faredio 結果表示コード初め -->
+		<section>
+			<script type="text/javascript" src="../datasystem.js"></script>
+			<script type="text/javascript" src="../getParam.js"></script>
+			<script type="text/javascript" src="../core.js"></script>
+			<script type="text/javascript" src="../routesel.js"></script>
+			<script type="text/javascript">
+				//ユーザー指定スクリプトの読み込み
+				if (userCalc != "") {
+					window.document.writeln('<script type="text/javascript" src="' + faredioDirG + 'datas/' + userCalc + '"><\/script>');
+				}
+			</script>
+			<script type="text/javascript" src="../showresult.js"></script>
+			<!-- Faredio 結果表示コード終り -->
+			<div class="button-div">
+				<a href="javascript:history.back();"><span>返回</span></a>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>

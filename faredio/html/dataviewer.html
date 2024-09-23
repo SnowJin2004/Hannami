@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta name="robots" content="noindex,nofollow">
+	<title>Faredio 2.0 データビューアー</title>
+	<style type="text/css">
+	<!--
+	table.DATA_F {
+		font-size: 10pt;
+		border-collapse: collapse;
+		margin-top: 10px;
+	}
+	th.DATA_I {
+		text-align:left;
+		border: 1px solid #334CB2;
+		background-color: #CCDDFF;
+		padding: 2px;
+	}
+	td.DATA_I {
+		width: 100px;
+		border: 1px solid #334CB2;
+		padding: 2px;
+	}
+	td.DATA_K {
+		border: 1px solid #334CB2;
+		padding: 2px;
+	}
+	h1 { font-size: 12pt; }
+	div.warningBox {
+		padding: 10px;
+		background-color: #FFAAAA;
+	}
+	-->
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="../datasystem.js"></script>
+<script type="text/javascript">
+<!--
+	var D = window.document;
+
+	//整理した情報を格納
+	var buf = location.search.replace(/\x3ffn=/,"");
+	var splitbuf = buf.split("/");
+	var fileName = splitbuf[splitbuf.length - 1];
+	
+	//JavaScript を読み込む
+	D.write('<script type="text/javascript" src="../datas/' + fileName + '"><\/script>');
+//-->
+</script>
+	<script type="text/javascript">
+	<!--
+	D.write("<h1>データ名：<span style='background-color:#FFFF80;padding:3px;'>" + dataName + "</span><\/h1>");
+	// dataFileName がファイル名と不一致のときに警告を表示する
+	if (dataFileName != fileName)
+	{
+		D.write('<div class="warningBox">');
+		D.write('dataFileName の指定が、データファイル名と一致していません。データファイル内の記述を確認して下さい。<br>');
+		D.write('dataFileName=<strong>"'+dataFileName+'"</strong>;  designated in <strong>'+fileName+'</strong>');
+		D.write('</div>');
+	}
+	
+	//-->
+	</script>
+	
+<h1>駅一覧</h1>
+	<script type="text/javascript">
+	<!--
+	D.writeln("<table class=\"DATA_F\">");
+	D.write("<tr>");
+	D.write("<th class=\"DATA_I\">駅番号<\/th>");
+	D.write("<th class=\"DATA_I\">駅名<\/th>");
+	D.write("<th class=\"DATA_I\">ローマ字<\/th>");
+	D.write("<th class=\"DATA_I\">駅ナンバリング<\/th>");
+	D.writeln("<\/tr>");
+	for (var i=0; i<stationList.staList.length; i++) {
+		if (stationList.staList[i]!=undefined) {
+			D.write("<tr>");
+			D.write("<td class=\"DATA_I\">" + i + "<\/td>");
+			D.write("<td class=\"DATA_I\">" + stationList.staList[i].name + "<\/td>");
+			D.write("<td class=\"DATA_I\">" + stationList.staList[i].roman + "<\/td>");
+			D.write("<td class=\"DATA_I\">" + stationList.staList[i].numberling + "<\/td>");
+			D.writeln("<\/tr>");
+		}
+	}
+	D.writeln("<\/table>");
+	//-->
+	</script>
+	
+<h1><a name="testerpos">動作確認</a></h1>
+	
+	<!-- 検索フォーム -->
+	<form name="tform" action="showresult.html">
+	<input type="hidden" name="vl">
+	<input type="hidden" name="gl">
+	<input type="hidden" name="lev">
+	<input type="hidden" name="arv">
+	<input type="hidden" name="dir" value="../">
+	<input type="radio" name="slSta" value="lev" checked="checked" id="levR">
+	発駅：<input type="text" name="levF" readonly="readonly">
+	<input type="radio" name="slSta" value="arv" id="arvR">
+	着駅：<input type="text" name="arvF" readonly="readonly">
+	<script type="text/javascript">
+	<!--
+	D.write('<input type="hidden" value="' + fileName + '" name="fn">');
+	//-->
+	</script>
+	<input type="submit" value="検索結果を表示">
+	</form>
+	
+	<script type="text/javascript">
+	<!--
+	//乗車駅・降車駅を指定する関数
+	function setLA(lIdx, sIdx)
+	{
+		if (D.tform.levR.checked) {
+			D.tform.vl.value = lIdx;
+			D.tform.lev.value = sIdx;
+			D.tform.levF.value = stationList.staList[sIdx].name;
+			D.tform.arvR.checked = true;
+		} else {
+			D.tform.gl.value = lIdx;
+			D.tform.arv.value = sIdx;
+			D.tform.arvF.value = stationList.staList[sIdx].name;
+		}
+	}
+	/*
+	function setA(sIdx, lIdx)
+	{
+		D.tform.al.value = lIdx;
+		D.tform.arv.value = sIdx;
+	}	
+	*/
+	
+	D.writeln("<table class=\"DATA_F\">");
+	//路線一覧を表示
+	D.writeln("<tr>");
+	//D.writeln("<tr><th class=\"DATA_I\">駅番号<\/th>");
+	for (var k = 0; k < lines.length; k++)
+	{
+		//D.writeln("<th class=\"DATA_I\">駅間<\/th>");
+		D.writeln("<th class=\"DATA_I\" colspan=\"2\">" + k + "：" + lines[k].name + "<br><span style='font-weight:normal;'>運賃規定[" + lines[k].fareRule + "]</span><\/th>");
+	}
+	D.writeln("<\/tr>");
+
+	D.writeln("<tr>");
+	for (var k = 0; k < lines.length; k++)
+	{
+		D.writeln("<th class=\"DATA_I\">駅名<\/th>");
+		D.writeln("<th class=\"DATA_I\">駅間キロ<\/th>");
+	}
+	D.writeln("<\/tr>");
+
+	//データを表示
+	for (var i = 0; i < MAXSTACT; i++)
+	{
+		D.writeln("<tr>");
+		for (var j = 0; j < lines.length; j++)
+		{
+			if (lines[j].staNum[i] == undefined) {
+				D.writeln("<td class=\"DATA_I\">-<\/td>");
+				D.writeln("<td class=\"DATA_K\" style=\"text-align:center;\">・・<\/td>");
+			}
+			else {
+				staNumBuf = lines[j].staNum[i];
+				D.writeln("<td class=\"DATA_I\">");
+				if (!(lines[j].banUseSta(i) || stationList.staList[staNumBuf].name.indexOf("BRH_")==0)) {
+					D.write("<a href=\"#testerpos\" ");
+					D.write("onclick=\"javascript:setLA(" + j + "," + staNumBuf + ");\" ");
+					D.writeln("title=\"" + stationList.staList[staNumBuf].numberling + " " + stationList.staList[staNumBuf].roman + "\">");
+					D.write("(" + staNumBuf + ") " + stationList.staList[staNumBuf].name + "<\/a>");
+				} else {
+					D.write("(" + staNumBuf + ") " + stationList.staList[staNumBuf].name);
+				}
+				D.writeln("<\/td>");
+				if (lines[j].roadK[i] == undefined)
+					D.writeln("<td class=\"DATA_K\">＝＝<\/td>");
+				else
+					D.writeln("<td class=\"DATA_K\">" + lines[j].roadK[i] + "<\/td>");
+			}
+		}
+		D.writeln("<\/tr>");
+	}
+	D.writeln("<\/table>");
+	//-->
+	</script>
+
+<h1>運賃規定</h1>
+	<script type="text/javascript">
+	<!--
+  for (var pi = 0; pi < fareRule.length; pi++)
+  {
+	D.writeln("<table class=\"DATA_F\">");
+	D.writeln("<caption>運賃規定[" + pi + "]<\/caption>");
+	//データ
+	D.writeln("<tr>");
+	D.writeln("<th class=\"DATA_I\">キロ程<\/th>");
+	D.writeln("<th class=\"DATA_I\">運賃(ICカード)<\/th>");
+	D.writeln("<th class=\"DATA_I\">運賃(乗車券)<\/th>");
+	D.writeln("<\/tr>");
+	
+	for (var i = 0; i < fareRule[pi].fareRows.length; i++)
+	{
+		D.writeln("<tr>");
+		D.writeln("<td class=\"DATA_I\">" + fareRule[pi].fareRows[i].minK + "km ～ " + fareRule[pi].fareRows[i].maxK + "km<\/td>");
+		D.writeln("<td class=\"DATA_I\">\\" + fareRule[pi].fareRows[i].fare + "<\/td>");
+		D.writeln("<td class=\"DATA_I\">\\" + fareRule[pi].fareRows[i].getTicketFare(fareRule[pi].ICmode) + "<\/td>");
+		//D.writeln("<td class=\"DATA_I\">\\" + fareRule[pi].fareRows[i].getTicketFare(1) + "<\/td>");
+		D.writeln("<\/tr>");
+	}
+	
+	D.writeln("<\/table>");
+  }
+	//-->
+	</script>
+
+<h1>特定運賃</h1>
+	<script type="text/javascript">
+	<!--
+	D.writeln("<table class=\"DATA_F\">");
+	D.writeln("<tr>");
+	//D.writeln("<th class=\"DATA_I\">駅間<\/th>");
+	D.writeln("<th class=\"DATA_I\">適用経路<\/th>");
+	D.writeln("<th class=\"DATA_I\">運賃(ICカード)<\/th>");
+	D.writeln("<th class=\"DATA_I\">運賃(乗車券)<\/th>");
+	D.writeln("<\/tr>");
+	for (var i=0; i<specificFare.length; i++) {
+		D.writeln("<tr>");
+		D.writeln("<td class=\"DATA_I\" style=\"width:400px;\">");
+		for (var j=0; j<specificFare[i].via.length; j++) {
+			if (j%2) D.write("→" + lines[specificFare[i].via[j]].name + "→");
+			else D.write(stationList.staList[specificFare[i].via[j]].name);
+		}
+		D.writeln("<\/td>");
+		//D.writeln("<td class=\"DATA_I\">" + stationList.staList[specificFare[i].sta1].name + " ～ " + stationList.staList[specificFare[i].sta2].name + "<\/td>");
+		D.writeln("<td class=\"DATA_I\">\\" + specificFare[i].fareIC + "<\/td>");
+		D.writeln("<td class=\"DATA_I\">\\" + specificFare[i].fareTicket + "<\/td>");
+		D.writeln("<\/tr>");
+	}
+	D.writeln("<\/table>");
+	//-->
+	</script>
+
+</body>
+</html>

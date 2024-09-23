@@ -1,0 +1,119 @@
+.content-bg {
+	background: linear-gradient(-30deg, #334CB22D, #6699D82D);
+	padding-top: 60px;
+	padding-bottom: 60px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.card-row {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-left: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gutter-y) var(--gutter-x);
+	margin-top: var(--margin-top);
+	--gutter-y: 40px;
+	--gutter-x: 40px;
+	--margin-top: 0;
+}
+
+.card-col {
+	width: calc(50% - 20px);
+}
+
+.card-bg {
+	font-size: 62.5% !important;
+	letter-spacing: .04em;
+}
+
+.card-bg a {
+	box-sizing: border-box;
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	gap: 0 20px;
+	border-radius: 12px;
+	box-shadow: 0 4px 24px rgba(0, 25, 65, .12);
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	padding: 35px 40px;
+	transition: .4s cubic-bezier(0.23, 1, 0.32, 1);
+	margin-top: 0 !important;
+}
+
+.card-bg a .card-icon {
+	color: inherit;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	width: 60px;
+	height: 100%;
+}
+
+.card-icon img {
+	width: 75px;
+	height: 75px;
+}
+
+.card-descterm {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+	line-height: 1.4;
+	font-weight: 500;
+	color: #222;
+}
+
+.card-descdefn {
+	font-size: 1.5em;
+	line-height: 1.6;
+	color: #555;
+	margin: 0;
+}
+
+@media screen and (min-width: 961px) {
+	.card-bg .card:hover {
+		box-shadow: 0px 4px 48px 0px rgba(0, 25, 65, .24);
+	}
+
+	.card-bg .card-title {
+		display: inline;
+		background: linear-gradient(#334CB2, #334CB2) 0 100% / 0 1px no-repeat;
+		padding-bottom: 1px;
+		transition: background .4s cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	
+	.card-bg .card:hover .card-title {
+		display: inline;
+		background: linear-gradient(#334CB2, #334CB2) 0 100% / 0 1px no-repeat;
+		background-size: 100% 1px;
+		color: #334CB2;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.card-row {
+		flex-direction: row;
+		--gutter-y: 30px;
+		--gutter-x: 0;
+	}
+
+	.card-col {
+		width: 100%;
+	}
+
+	.card-bg .card {
+		gap: 0 10px;
+		border-radius: 12px;
+		padding: 25px 20px;
+	}
+
+	.card-icon img {
+		width: 60px;
+		height: 60px;
+	}
+}

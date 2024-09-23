@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+
+a {
+	background-color: transparent;
+	color: inherit;
+	text-decoration: none;
+}
+
+.faredioFormPulldown {
+	z-index: 5;
+	margin-top: 20px;
+	position: absolute;
+	padding-bottom: 15px;
+	letter-spacing: initial;
+	line-height: initial;
+	margin-top: 1.5rem;
+	box-shadow: rgba(29, 29, 31, 0.498) 0px 3px 9px 0px;
+	border-radius: 6px;
+	padding: 0px;
+	background-color: rgb(255, 255, 255);
+}
+
+.faredioFormPulldown::before {
+	content: " ";
+	position: absolute;
+	top: 1px;
+	left: 1rem;
+	transform-origin: 0px 0px;
+	transform: rotate(315deg);
+	box-shadow: rgba(29, 29, 31, 0.1) 2.25px -2.25px 3px 0px;
+	border-width: 8px;
+	border-style: solid;
+	border-image: initial;
+	border-color: rgb(255, 255, 255) rgb(255, 255, 255) transparent transparent;
+}
+
+.faredioFormLine:last-of-type {
+	margin-bottom: 1em;
+}
+
+.faredioFormLine h4 {
+	margin: 0.5em 0.5em 0 0.5em;
+	padding: 0 0 0.1em 1em;
+	position: relative;
+	line-height: 1.2em;
+	font-weight: bold;
+	background: linear-gradient(to right, #f6f6f6 75%, #f6f6f600 95%);
+	font-size: 18px;
+	border-radius: 0.25em;
+}
+
+.faredioFormLine h4::before {
+	content: "";
+	display: block;
+	position: absolute;
+	background-color: var(--line-colour);
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 0.25em;
+	border-radius: 0.25em;
+}
+
+.faredioFormLine ul {
+	margin: 3px 1.25em 3px 1.5em;
+}
+
+.faredioFormLine ul li {
+	display: inline-block;
+	padding: 0 0.25em;
+	border-radius: 0.25em;
+	margin-top: 0.25em;
+}
+
+.faredioFormLine ul li:hover {
+	background-color: var(--line-colour);
+}
+
+.faredioFormLine ul li:hover a {
+	color: #fff;
+}
+
+.faredioFormLine ul li:not(:last-of-type) {
+	margin-right: 0.5em;
+}
+
+@media screen and (min-width: 951px) {
+	.Search-Station-List {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
+
+	.Search-Station-Item {
+		height: 60px;
+		width: 100%;
+	}
+
+	.Search-Station-Item dl dt {
+		font-size: 18px;
+		width: 85px;
+	}
+
+	.Search-Station-Item dl dd {
+		padding: 0 20px;
+		width: calc(100% - 85px);
+		vertical-align: middle;
+	}
+
+	.Search-Station-Item:first-of-type {
+		margin-bottom: 12px;
+	}
+
+	.Search-Station-Item:last-of-type {
+		margin-top: 12px;
+	}
+
+	.faredioFormPulldown {
+		width: calc(50% - 6em - 85px);
+		margin-left: -1.25em;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.faredioFormPulldown {
+		width: calc(100% - 1em - 80px);
+		margin-left: -1em;
+	}
+
+	.faredioFormLine h4 {
+		padding-left: 0.75em;
+	}
+
+	.faredioFormLine ul {
+		margin-left: 1.25em;
+	}
+	
+	.Search-Station-Item {
+		height: 50px;
+		width: 100%;
+	}
+
+	.Search-Station-Item:first-of-type {
+		margin-bottom: 8px;
+	}
+
+	.Search-Station-Item:last-of-type {
+		margin-top: 8px;
+	}
+
+	.Search-Station-Item dl dt {
+		font-size: 16px;
+		width: 70px;
+	}
+
+	.Search-Station-Item dl dd {
+		padding: 0 15px;
+		width: calc(100% - 70px);
+	}
+}

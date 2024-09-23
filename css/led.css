@@ -1,0 +1,98 @@
+.led-top {
+	background-color: var(--line_colour);
+}
+
+.led-top span {
+	margin-left: 10px;
+	background-color: #fff;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: var(--line_colour);
+	font-family: "Roboto", "Noto Sans CJK SC";
+	display: inline-block;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.led-set {
+	image-rendering: pixelated;
+	display: block;
+	max-width: calc(100%);
+}
+
+.led-side {
+	font-family: "Roboto";
+}
+
+.led-side~.led-set:not(:first-of-type) {
+	margin-top: 1px;
+}
+
+.led-article {
+	width: calc(50% - 24px);
+	margin: 10px;
+	display: inline-block;
+}
+
+.led-long {
+	overflow-x: scroll;
+	/* display: block; */
+}
+
+.led-long img {
+	height: auto;
+	width: auto;
+	max-width: initial;
+}
+
+.led-long::-webkit-scrollbar {
+	height: 0.5rem;
+}
+
+.led-long::-webkit-scrollbar-track {
+	background: #eaecf0;
+}
+
+.led-long::-webkit-scrollbar-thumb {
+	background: #a2a9b1;
+}
+
+.led-long::-webkit-scrollbar-thumb:hover {
+	background: #df0000;
+}
+
+@media (max-width: 768px) {
+	.led-article {
+		max-width: calc(100% - 20px);
+	}
+
+	.led-article {
+		width: auto;
+		overflow-x: scroll;
+	}
+
+	.led-top {
+		max-width: 100%;
+	}
+
+	.led-article img {
+		max-width: initial;
+		width: auto;
+	}
+
+	.led-article::-webkit-scrollbar {
+		height: 0.5rem;
+	}
+
+	.led-article::-webkit-scrollbar-track {
+		background: #eaecf0;
+	}
+
+	.led-article::-webkit-scrollbar-thumb {
+		background: #a2a9b1;
+	}
+
+	.led-article::-webkit-scrollbar-thumb:hover {
+		background: var(--line_colour);
+	}
+}

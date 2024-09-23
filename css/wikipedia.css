@@ -1,0 +1,375 @@
+body {
+	background-color: #f6f6f6;
+	margin: 0;
+	font-family: 'Noto Sans SC', sans-serif;
+	color: #202122;
+	font-size: 16px;
+}
+
+#headbar {
+	width: 160px;
+	position: absolute;
+	top: 6px;
+	right: 0.75em;
+}
+
+#divLogo {
+	margin: 25px;
+	text-align: center;
+}
+
+#divLogo img {
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: block;
+	width: 110px;
+	height: 110px;
+}
+
+#leftbar {
+	width: 160px;
+	height: 100%;
+	margin: 0px 8px;
+	position: absolute;
+	display: block;
+	top: 0;
+}
+
+#leftNavi {
+	float: left;
+	margin: 40px 0px 40px 176px;
+	display: block;
+	background-image: linear-gradient(to bottom, #a7d7f9 0, #a7d7f9 100%);
+	background-repeat: no-repeat;
+	background-size: 1px 100%;
+}
+
+#leftNavi ul {
+	float: left;
+	height: 100%;
+	list-style: none none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#content {
+	margin: -1px 0px 0px 176px;
+	border: 1px solid #a7d7f9;
+	background-color: #ffffff;
+	padding: 20px 24px 24px 24px;
+}
+
+.firstHeading {
+	margin-bottom: 7.2px;
+	border-bottom: 1px solid #a2a9b1;
+}
+
+.wkBSi {
+	/* float: right;
+	clear: right; */
+	border-style: solid;
+	border-width: 1px;
+	border-collapse: collapse;
+	background-color: #fff;
+	font-size: 85%;
+}
+
+.collapseButton {
+	float: right;
+	text-align: right;
+}
+
+.dia {
+	margin: 10px;
+	padding: 0;
+	text-align: left;
+}
+
+table.dia tr {
+	white-space: nowrap;
+	text-align: center;
+	line-height: 0;
+}
+
+table.dia img {
+	width: 20px;
+}
+
+table.rosenjoho {
+	width: 22em;
+	width: 300px;
+	border: 1px solid #a2a9b1;
+	background-color: #f8f9fa;
+	color: black;
+	margin: 0.5em 0 0.5em 1em;
+	padding: 0.2em;
+	float: right;
+	clear: right;
+	text-align: left;
+	font-size: 88%;
+	line-height: 1.5em;
+}
+
+table.rosenjoho .rosenmei {
+	text-align: center;
+	font-size: 125%;
+	font-weight: bold;
+	border-top-width: 4px;
+	border-top-style: solid;
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+}
+
+table.rosenjoho td,
+table.rosenjoho th {
+	vertical-align: top;
+}
+
+table.ekijoho {
+	border: 1px solid #a2a9b1;
+	background-color: #f8f9fa;
+	color: black;
+	width: 300px;
+	margin: 0.5em 0 0.5em 1em;
+	padding: 0.2em;
+	float: right;
+	clear: right;
+	text-align: left;
+	font-size: 88%;
+	line-height: 1.5em;
+	border-collapse: collapse;
+}
+
+table.ekijoho thead td {
+	text-align: center;
+	background: #fff;
+	padding: 3px;
+}
+
+table.ekijoho tbody th {
+	text-align: left;
+	white-space: nowrap;
+	font-weight: normal;
+	background: transparent;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2px;
+	width: 5em;
+}
+
+table.ekijoho tbody td {
+	background: #fff;
+	padding: 3px;
+}
+
+table.ekijoho td,
+table.ekijoho th {
+	border: 1px solid #a2a9b1;
+}
+
+table.ekijoho .ekimei th {
+	text-align: center;
+	font-size: 125%;
+	font-weight: bold;
+	padding: 4px;
+}
+
+table.ekijoho .gazo td {
+	text-align: center;
+	background: white;
+}
+
+table.ekijoho .gazo img {
+	border: 0;
+	vertical-align: middle;
+}
+
+table.ekijoho .tonarinoeki td div {
+	width: 140px;
+	font-size: 80%;
+}
+
+table.ekijoho .fullwidthbiko td div {
+	margin: 0.3em;
+	text-align: left;
+	font-size: 95%;
+}
+
+.wikitable {
+	background-color: #f8f9fa;
+	color: #202122;
+	margin: 1em 0;
+	border: 1px solid #a2a9b1;
+	border-collapse: collapse
+}
+
+.wikitable>tr>th,
+.wikitable>tr>td,
+.wikitable>*>tr>th,
+.wikitable>*>tr>td {
+	border: 1px solid #a2a9b1;
+	padding: 0.2em 0.4em
+}
+
+.wikitable>tr>th,
+.wikitable>*>tr>th {
+	background-color: #eaecf0;
+	text-align: center
+}
+
+.toc {
+	display: table;
+	padding: 7px;
+	background-color: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	padding: 5px;
+	font-size: 95%;
+}
+
+.toc .toctitle {
+	direction: ltr;
+	text-align: center;
+}
+
+.toc h2 {
+	font-family: sans-serif;
+	font-size: 100%;
+	display: inline;
+	border: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+.toc ul {
+	list-style: none;
+	margin: 0.3em 0;
+	padding: 0;
+	text-align: left;
+}
+
+.toc ul ul {
+	margin: 0 0 0 2em;
+}
+
+.tocnumber {
+	padding-left: 0;
+	padding-right: 0.5em;
+	color: #202122;
+	padding-left: 0;
+	padding-right: 0.5em;
+}
+
+.tocnumber,
+.toctext {
+	display: table-cell;
+	text-decoration: inherit;
+}
+
+li,
+dd {
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid-column;
+}
+
+main li {
+	margin-bottom: 0.1em;
+}
+
+main ul {
+	margin: 0.3em 0 0 1.6em;
+	padding: 0;
+	list-style-image: url(../img/icon/bullet-icon.svg);
+}
+
+a {
+	text-decoration: none;
+	color: #0645ad;
+	background: none;
+}
+
+
+a:active {
+	color: #faa700;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+
+.BS-distance {
+	text-align: right;
+	vertical-align: middle;
+	padding: 0 0.5em;
+	font-size: 80%;
+}
+
+.BS-name {
+	text-align: left;
+	font-size: 90%;
+	padding-left: 3px;
+}
+
+.BS-comment {
+	text-align: right;
+	vertical-align: middle;
+	padding: 0 0 0 3px;
+	font-size: 90%;
+	border: 0px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #000000;
+	margin: 0;
+	padding-top: 0.5em;
+	padding-bottom: 0.17em;
+	overflow: hidden;
+}
+
+h1,
+h2 {
+	margin-bottom: 0.6em;
+	border-bottom: 1px solid #a2a9b1;
+	word-break: keep-all;
+}
+
+h2 {
+	font-family: sans-serif;
+	margin-top: 1em;
+	font-size: 1.5em;
+	margin-bottom: 0.25em;
+	padding: 0;
+	line-height: 1.375em;
+	font-weight: normal;
+}
+
+p {
+	margin: 0.5em 0;
+}
+
+.sprite {
+	display: inline-block;
+	vertical-align: -7.5%;
+	height: 16px;
+	width: 16px;
+	margin-left: 0.05em;
+	margin-right: 0.2em;
+	background-repeat: no-repeat;
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+	main ul {
+		list-style-type: disc;
+		margin: 0;
+		padding: 0;
+		padding-left: 1em;
+	}
+}

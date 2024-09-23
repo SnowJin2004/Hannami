@@ -1,0 +1,238 @@
+/* 西武 より */
+#ekimeihyo {
+	margin-top: 1em;
+	text-align: center;
+}
+
+#konaizu {
+	text-align: center;
+}
+
+.h2 {
+	position: relative;
+	padding-bottom: 1em;
+}
+
+.h2:not(:last-child) {
+	margin-bottom: 40px;
+}
+
+.h2:nth-child(n+2) {
+	margin-top: 90px;
+}
+
+.h2::after {
+	display: block;
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	background: linear-gradient(to right, #334CB2 0, #6699D8 33.3%);
+}
+
+.h2-text {
+	font-size: 34px;
+	line-height: 1.3;
+	font-weight: 400;
+}
+
+h3 {
+	font-size: 28px;
+	line-height: 1.3;
+	padding: 1px 0 1px 24px !important;
+	border-left: 4px #6699D8 solid;
+	height: 38px;
+}
+
+h3:not(:last-child) {
+	margin-bottom: 35px;
+}
+
+h3:not(:first-child), section.flex:not(:first-child) {
+	margin-top: 70px;
+}
+
+ul.platform div {
+	display: inline-block;
+	background-color: var(--line-colour);
+	width: 1.25em;
+	height: 1.25em;
+	text-align: center;
+	color: #fff;
+	font-family: 'Roboto';
+	font-weight: 600;
+	border-radius: 50%;
+	line-height: 1.25em;
+}
+
+ul.platform span {
+	white-space: pre;
+}
+
+ul.platform span::before {
+	display: inline-block;
+	vertical-align: -0.25em;
+	width: 1.25em;
+	height: 1.25em;
+	padding-right: 4.5px;
+}
+
+.plat-HX::before {
+	content: url(../img/line-icon/HX-icon.svg);
+}
+
+ul.exit div {
+	display: inline-block;
+	background-color: #fed400;
+	width: 1.25em;
+	height: 1.25em;
+	text-align: center;
+	color: #000;
+	font-family: 'Roboto';
+	font-weight: 600;
+	border-radius: 0.15625em;
+	line-height: 1.25em;
+}
+
+.flex {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.flex>section {
+	width: calc(50% - 5px);
+}
+
+table:nth-child(n+2) {
+	margin-top: 50px;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: none;
+}
+
+table th {
+	background-color: #e0eaf7;
+
+	text-align: left;
+	font-weight: 700;
+}
+
+table td {
+	background-color: #fffffe;
+}
+
+table td,
+table th {
+	padding: 20px 20px 19px;
+	border: 1px solid #ccc;
+	line-height: 1.5;
+}
+
+col.width-33 {
+	width: calc(100% * 1/3);
+}
+
+td.sta-name:lang(zh) {
+	font-family: 'Noto Sans SC';
+}
+
+td.sta-name:lang(ja) {
+	font-family: 'Noto Sans JP';
+}
+
+td.sta-name:lang(ko) {
+	font-family: 'Noto Sans KR';
+}
+
+td.sta-name:lang(en),
+td.sta-name:lang(ru) {
+	font-family: 'Roboto';
+}
+
+ruby rt {
+	user-select: none;
+}
+
+@media screen and (min-width: 721px) {
+
+	#ekimeihyo img,
+	#konaizu img {
+		width: 720px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		border-radius: 12px;
+	}
+
+	.pc-only {
+		display: table;
+	}
+
+	.sp-only {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	#ekimeihyo img,
+	#konaizu img {
+		width: 100%;
+		height: auto;
+	}
+
+	.pc-only {
+		display: none;
+	}
+
+	.sp-only {
+		display: table;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	table td,
+	table th {
+		padding: 15px 10px;
+		font-size: 14px;
+	}
+
+	.h2:not(:last-child) {
+		margin-bottom: 25px;
+	}
+
+	h3:not(:first-child) {
+		margin-top: 0;
+	}
+
+	h3 {
+		font-size: 24px;
+		height: 32px;
+	}
+
+	h3:not(:last-child) {
+		margin-bottom: 25px;
+	}
+
+	h3:not(:first-child), section.flex section:not(:first-child) {
+		margin-top: 50px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.flex>section {
+		width: 100%;
+	}
+
+	.flex:not(:last-of-type)>section,
+	.flex:last-of-type>section:not(:last-of-type) {
+		margin-bottom: 30px;
+	}
+}
